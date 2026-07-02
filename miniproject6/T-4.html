@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Link Preview Cards</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial;
+        }
+
+        body {
+            background: #0f172a;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 30px;
+            color: white;
+        }
+
+        /* MAIN BOX */
+        .container {
+            width: 100%;
+            max-width: 420px;
+        }
+
+        /* FORM */
+        .form-box {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: #38bdf8;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0ea5e9;
+        }
+
+        /* PREVIEW SECTION */
+        #preview {
+            margin-top: 20px;
+        }
+
+        /* CARD STYLE */
+        .card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* PLATFORM COLORS */
+        .insta {
+            background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
+        }
+
+        .linkedin {
+            background: #0a66c2;
+        }
+
+        .twitter {
+            background: #1da1f2;
+        }
+
+        /* VISIT BUTTON */
+        .visit {
+            background: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .visit:hover {
+            opacity: 0.8;
+        }
+
+        .icon {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="form-box">
+
+            <h2>Social Links</h2>
+
+            <input id="insta" placeholder="Instagram URL">
+            <input id="linkedin" placeholder="LinkedIn URL">
+            <input id="twitter" placeholder="Twitter URL">
+
+            <button onclick="generateCards()">Submit</button>
+
+        </div>
+
+        <div id="preview"></div>
+
+    </div>
+
+    <script>
+
+        // username extract function
+        function getUsername(url) {
+            if (!url) return "";
+            return url.split("/").filter(Boolean).pop();
+        }
+
+        // main function
+        function generateCards() {
+
+            let insta = document.getElementById("insta").value;
+            let linkedin = document.getElementById("linkedin").value;
+            let twitter = document.getElementById("twitter").value;
+
+            let html = "";
+
+            if (insta) {
+                html += `
+    <div class="card insta">
+      <div>📸 @${getUsername(insta)}</div>
+      <a href="${insta}" target="_blank">
+        <button class="visit">Visit</button>
+      </a>
+    </div>`;
+            }
+
+            if (linkedin) {
+                html += `
+    <div class="card linkedin">
+      <div>💼 @${getUsername(linkedin)}</div>
+      <a href="${linkedin}" target="_blank">
+        <button class="visit">Visit</button>
+      </a>
+    </div>`;
+            }
+
+            if (twitter) {
+                html += `
+    <div class="card twitter">
+      <div>🐦 @${getUsername(twitter)}</div>
+      <a href="${twitter}" target="_blank">
+        <button class="visit">Visit</button>
+      </a>
+    </div>`;
+            }
+
+            document.getElementById("preview").innerHTML = html;
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Social Links Input Style</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial;
+        }
+
+        body {
+            background: #f1f5f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* FORM BOX */
+        .form-box {
+            width: 100%;
+            max-width: 380px;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* INPUT STYLE */
+        .input-field {
+            width: 100%;
+            padding: 12px 12px 12px 45px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            outline: none;
+
+            background-repeat: no-repeat;
+            background-size: 20px;
+            background-position: 12px center;
+        }
+
+        /* INSTAGRAM */
+        .insta {
+            background-image: url("https://cdn-icons-png.flaticon.com/512/2111/2111463.png");
+        }
+
+        /* LINKEDIN */
+        .linkedin {
+            background-image: url("https://cdn-icons-png.flaticon.com/512/174/174857.png");
+        }
+
+        /* TWITTER (X) */
+        .twitter {
+            background-image: url("https://cdn-icons-png.flaticon.com/512/733/733579.png");
+        }
+
+        /* BUTTON */
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: #3b82f6;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #2563eb;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-box">
+
+        <h2>Social Links</h2>
+
+        <input class="input-field insta" type="text" placeholder="Instagram Link">
+
+        <input class="input-field linkedin" type="text" placeholder="LinkedIn Link">
+
+        <input class="input-field twitter" type="text" placeholder="Twitter Link">
+
+        <button>Save Links</button>
+
+    </div>
+
+</body>
+
+</html>
